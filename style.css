@@ -1,0 +1,63 @@
+body {
+    background-color: antiquewhite;
+}
+
+.container {
+    padding-top: 5rem;
+    width: 800px;
+    margin: 0 auto;
+}
+
+.card {
+    border-radius: 5px;
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 2px 2px 2px rgba(0,0,0,.2)
+}
+
+.btn {
+    border-radius: 5px;
+    background-color: orange;
+}
+
+input[type=file]{
+    display: none;
+}
+
+.preview {
+    display: flex;
+    flex-wrap: wrap;                  /*lдля того чтобы картинки переносились на новую строчку */
+    padding: .5rem;
+}
+
+.preview-image {
+    margin-bottom: .5rem;
+    margin-right: .5rem;
+}
+
+.preview-image img {
+    width: 180px;
+    height: auto;
+}
+
+.preview1 {
+    display: flex;
+    /* flex-wrap: wrap;                  lдля того чтобы картинки переносились на новую строчку */
+    padding: .5rem;
+}
+
+.preview-image1 {
+    margin-bottom: .5rem;
+    margin-right: .5rem;
+}
+
+img {
+    width: 180px;
+    height: auto;
+    margin-bottom: .5rem;
+    margin-right: .5rem;
+}
+
+.over {
+    border: solid red;
+  }
