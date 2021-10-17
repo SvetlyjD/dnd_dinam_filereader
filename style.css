@@ -31,6 +31,7 @@ input[type=file]{
 }
 
 .preview-image {
+    width: 182px;
     margin-bottom: .5rem;
     margin-right: .5rem;
 }
@@ -38,6 +39,11 @@ input[type=file]{
 .preview-image img {
     width: 180px;
     height: auto;
+}
+
+.loader {
+    height: 20px;
+    background-color: orange;
 }
 
 .preview1 {
@@ -60,4 +66,8 @@ img {
 
 .over {
     border: solid red;
+  }
+
+  .dragoverelem {
+      border:2px solid blue ;
   }
