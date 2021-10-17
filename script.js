@@ -12,8 +12,9 @@ const changeHandler = (e) => {
         reader.onloadstart = event => {
             let div = document.createElement("div");
             let preview_image = document.createElement("div");
-            preview_image.classList.add("preview-image")
+            preview_image.classList.add("preview-image1")
             div.classList.add("loader");
+            div.classList.add(`loader${i}`);
             preview_image.appendChild(div);
             preview.appendChild(preview_image);
         }
@@ -27,8 +28,8 @@ const changeHandler = (e) => {
 
         reader.onload = event => {
             console.log("onload-", i);
-            const loader = document.querySelector(".loader");
-            loader.remove();
+            let preview_image = document.querySelector(".preview-image1")
+            preview_image.classList.add("onload");
             preview.insertAdjacentHTML("afterbegin", `
             <div class = "preview-image">
             <img src="${event.target.result}" alt  ="${event.target.result}" draggable="true"/>

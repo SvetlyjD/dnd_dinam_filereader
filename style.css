@@ -4,7 +4,7 @@ body {
 
 .container {
     padding-top: 5rem;
-    width: 800px;
+    width: 850px;
     margin: 0 auto;
 }
 
@@ -28,12 +28,14 @@ input[type=file]{
     display: flex;
     flex-wrap: wrap;                  /*lдля того чтобы картинки переносились на новую строчку */
     padding: .5rem;
+    border: 2px solid lightcyan;
 }
 
 .preview-image {
     width: 182px;
     margin-bottom: .5rem;
     margin-right: .5rem;
+    border: 2px solid lightgreen;
 }
 
 .preview-image img {
