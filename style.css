@@ -71,3 +71,7 @@ img {
   .dragoverelem {
       border:2px solid blue ;
   }
+
+  .onload {
+      display: none;
+  }

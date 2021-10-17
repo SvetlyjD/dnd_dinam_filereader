@@ -13,20 +13,22 @@ const changeHandler = (e) => {
             let div = document.createElement("div");
             let preview_image = document.createElement("div");
             preview_image.classList.add("preview-image")
-            // div.classList.add("loader");
-            // preview_image.appendChild(div);
-            // preview.appendChild(preview_image);
+            div.classList.add("loader");
+            preview_image.appendChild(div);
+            preview.appendChild(preview_image);
         }
-        reader.onprogress = e => {
-            //     const loader = document.querySelectorAll(".loader");
-            //     let downloadPr = parseInt(e.loaded / e.total * 100);
-            //     loader[i].style.width = downloadPr + "%";
 
+        reader.onprogress = e => {
+            const loader = document.querySelectorAll(".loader");
+            let downloadPr = parseInt(e.loaded / e.total * 100);
+            console.log("onprogress-", i, "loaded-", downloadPr);
+            loader[i].style.width = downloadPr + "%";
         }
 
         reader.onload = event => {
-            // const loader = document.querySelector(".loader");
-            const preview_image = document.querySelector(".preview_image");
+            console.log("onload-", i);
+            const loader = document.querySelector(".loader");
+            loader.remove();
             preview.insertAdjacentHTML("afterbegin", `
             <div class = "preview-image">
             <img src="${event.target.result}" alt  ="${event.target.result}" draggable="true"/>
