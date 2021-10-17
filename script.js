@@ -1,7 +1,7 @@
 const button = document.querySelector(".btn");
 const input = document.querySelector(".fileInput");
 const preview = document.querySelector(".preview");
-
+let draganddrop = document.querySelector(".drag-and-drop");
 const triggerInput = () => input.click();
 const changeHandler = (e) => {
 
@@ -22,12 +22,12 @@ const changeHandler = (e) => {
         reader.onprogress = e => {
             const loader = document.querySelectorAll(".loader");
             let downloadPr = parseInt(e.loaded / e.total * 100);
-            console.log("onprogress-", i, "loaded-", downloadPr);
+            // console.log("onprogress-", i, "loaded-", downloadPr);
             loader[i].style.width = downloadPr + "%";
         }
 
         reader.onload = event => {
-            console.log("onload-", i);
+            // console.log("onload-", i);
             let preview_image = document.querySelector(".preview-image1")
             preview_image.classList.add("onload");
             preview.insertAdjacentHTML("afterbegin", `
@@ -67,12 +67,61 @@ function dnd() {
             e.target.src = beginElem.src;
             beginElem.src = v;
         }
-
     })
 }
 
 button.addEventListener("click", triggerInput);
 input.addEventListener("change", changeHandler);
+
+draganddrop.addEventListener("dragenter", (e) => {
+    e.preventDefault();
+});
+
+draganddrop.addEventListener("dragleave", (e) => {
+    e.preventDefault();
+});
+
+draganddrop.addEventListener("dragover", (e) => {
+    e.preventDefault();
+});
+
+draganddrop.addEventListener("drop", (e) => {
+    e.preventDefault();
+    let files1 = e.dataTransfer.files;
+    files1 = Array.from(files1);
+    files1.forEach((file, i) => {
+        let reader1 = new FileReader();
+
+        reader1.onloadstart = event => {
+            let div = document.createElement("div");
+            let preview_image = document.createElement("div");
+            preview_image.classList.add("preview-image1")
+            div.classList.add("loader");
+            div.classList.add(`loader${i}`);
+            preview_image.appendChild(div);
+            preview.appendChild(preview_image);
+        }
+
+        reader1.onprogress = e => {
+            const loader = document.querySelectorAll(".loader");
+            let downloadPr = parseInt(e.loaded / e.total * 100);
+            // console.log("onprogress-", i, "loaded-", downloadPr);
+            loader[i].style.width = downloadPr + "%";
+        }
+
+        reader1.onload = event => {
+            // console.log("onload-", i);
+            let preview_image = document.querySelector(".preview-image1")
+            preview_image.classList.add("onload");
+            preview.insertAdjacentHTML("afterbegin", `
+                <div class = "preview-image">
+                <img src="${event.target.result}" alt  ="${event.target.result}" draggable="true"/>
+                </div>
+                `);
+        }
+        reader1.readAsDataURL(file);
+    })
+})
 
 let beginElem;
 

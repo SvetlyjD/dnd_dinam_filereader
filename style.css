@@ -16,6 +16,8 @@ body {
 }
 
 .btn {
+    margin-top: 20px;
+    margin-left: 350px;
     border-radius: 5px;
     background-color: orange;
 }
@@ -77,3 +79,16 @@ img {
   .onload {
       display: none;
   }
+
+  
+.drag-and-drop {
+    position: relative;
+    margin-left: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 200px;
+    border: 2px solid lightgreen;
+    border-radius: 15px;
+}
